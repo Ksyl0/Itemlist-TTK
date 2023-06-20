@@ -14,6 +14,9 @@
     <script type="text/javascript">
         const itemListURL = "https://raw.githubusercontent.com/Ksyl0/Itemlist-TTK/master/StoreItems.json";
         const eventListURL = "https://raw.githubusercontent.com/Ksyl0/Itemlist-TTK/master/StoreEvents.json";
+        const traitListURL = "https://raw.githubusercontent.com/Ksyl0/Itemlist-TTK/master/traits.json";
+        const modListURL = "https://raw.githubusercontent.com/Ksyl0/Itemlist-TTK/master/modlist.json";
+        const pawnListURL = "https://raw.githubusercontent.com/Ksyl0/Itemlist-TTK/master/pawnkinds.json";
     </script>
 </head>
 
@@ -242,6 +245,22 @@
 
             eventList = new List('events', options, eventData);
         });
+
+        let traitList = null;
+        $.getJSON(traitListURL, function(data){
+            var options = {
+                valueNames: ['name','description','stats','addPrice','removePrice'],
+                item: '<tr><td class="name" scope="row"><td></td><td class="description"></td><td class="stats"></td></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
+            };
+            var traitData = [];
+            $.each(data.traits, function(index, value){
+                if (value["addPrice"]>0){
+                    traitData.push(value);
+                }
+            });
+
+            traitList = new List('traits',options,traitData);
+        })
 
         $("#item-price-min").keyup(function() {
             updateItemFilter();
