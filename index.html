@@ -283,7 +283,7 @@
                 item: '<tr><td class="name" scope="row"></td><td class="description"></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
             };
             var traitData = [];
-            $.each(data.traiten, function(index, value){
+            $.each(data, function(index, value){
                 if (value["addPrice"]>0){
                     traitData.push(value);
                 }
