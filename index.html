@@ -166,7 +166,8 @@
                             <table class="table traits">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">Name</th>
-                                    <th scope="col" class="sort" data-sort="description">Description</th>
+                                    <th>Description</th>
+                                    <th>Stats</th>
                                     <th scope="col" class="sort" data-sort="addPrice">Add price</th>
                                     <th scope="col" class="sort" data-sort="removePrice">Remove price</th>
                                 </tr>
@@ -280,7 +281,7 @@
         $.getJSON(traitListURL, function(data){
             var options = {
                 valueNames: ['name','description','stats','addPrice','removePrice'],
-                item: '<tr><td class="name" scope="row"></td><td class="description"></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
+                item: '<tr><td class="name" scope="row"></td><p><td class="description"><td class="stats"><td class="addPrice"></td><td class="removePrice"></td></tr>'
             };
             var traitData = [];
             $.each(data, function(index, value){
@@ -290,8 +291,6 @@
             });
 
             traitList = new List('traits',options,traitData);
-            console.log("Dane o traitach:")
-            console.log(traitData);
         })
 
         $("#item-price-min").keyup(function() {
