@@ -280,7 +280,7 @@
         $.getJSON(traitListURL, function(data){
             var options = {
                 valueNames: ['name','description','stats','addPrice','removePrice'],
-                item: '<tr><td class="name" scope="row"><td></td><td class="description"></td><td class="stats"></td></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
+                item: '<tr><td class="name" scope="row"></td><td class="description"></td><td class="addPrice"></td><td class="removePrice"></td></tr>'
             };
             var traitData = [];
             $.each(data.trait, function(index, value){
